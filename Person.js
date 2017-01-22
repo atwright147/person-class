@@ -3,7 +3,7 @@
 class Person {
 
 	age(dob) {
-		if (typeof dob === 'string' && !dob.match(/(\d{1,2})\/(\d{1,2})\/(\d{4}|\d{2})/ig)) {
+		if (typeof dob === 'string' && !dob.match(/(\d{1,2})(?:\/|\.|\-)(\d{1,2})(?:\/|\.|\-)(\d{4}|\d{2})/ig)) {
 			return false;
 		}
 

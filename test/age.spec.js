@@ -16,4 +16,10 @@ describe('Age', function() {
 	it('should return 38 for 22/09/1978', () => {
 		expect(Person.age('22/09/1978')).toEqual(38);
 	});
+
+	it('should accept "/", "." and "-" as delimiters', () => {
+		expect(Person.age('22/09/1978')).toEqual(38);
+		expect(Person.age('22.09.1978')).toEqual(38);
+		expect(Person.age('22-09-1978')).toEqual(38);
+	});
 });
