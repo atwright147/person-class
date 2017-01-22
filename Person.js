@@ -6,12 +6,8 @@ class Person {
 		if (typeof dob === 'string' && !dob.match(/(\d{1,2})\/(\d{1,2})\/(\d{4}|\d{2})/ig)) {
 			return false;
 		}
-		
-		const [dobDayStr, dobMonthStr, dobYearStr] = dob.split(/(?:\/|\.|\-)/ig);
 
-		const dobDay   = Number(dobDayStr);
-		const dobMonth = Number(dobMonthStr);
-		const dobYear  = Number(dobYearStr);
+		const [dobDay, dobMonth, dobYear] = dob.split(/(?:\/|\.|\-)/ig);
 
 		const dobObj = new Date(dobYear, dobMonth, dobDay);
 		const dobDiff = Date.now() - dobObj.getTime();
