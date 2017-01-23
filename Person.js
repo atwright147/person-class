@@ -15,6 +15,10 @@ class Person {
 
 		return diffObj.getUTCFullYear() - 1970;
 	}
+
+	height(height, source, dest) {
+		return 100;
+	}
 }
 
 export default Person;
