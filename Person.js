@@ -21,6 +21,10 @@ class Person {
 			return false;
 		}
 
+		if (source === dest) {
+			return height;
+		}
+
 		const measurements = [
 			'meters',
 			'cm',

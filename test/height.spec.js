@@ -14,6 +14,10 @@ describe('Height', function() {
 		expect(Person.height(6, null, null)).toBe(false);
 	});
 
+	it('should return same height as param if source and dest are the same', () => {
+		expect(Person.height(6, 'meters', 'meters')).toEqual(6);
+	});
+
 	it('should return correct height', () => {
 		expect(Person.height(6, 'meters', 'cm')).toEqual(600);
 		expect(Person.height(6, 'cm', 'mm')).toEqual(6);
