@@ -26,61 +26,59 @@ class Person {
 		}
 
 		const measurements = [
-			'meters',
-			'cm',
 			'mm',
+			'cm',
+			'inches',
 			'feet',
-			'inches'
+			'meters',
 		];
 
 		// convert to our chosen base unit (mm)
 		let base;
 		switch(source) {
-			case 'meters':
-				base = height * 1000;
+			case 'mm':
+				base = height;
 				break;
 
 			case 'cm':
 				base = height * 10;
 				break;
 
-			case 'mm':
-				base = height;
+			case 'inches':
+				base = height * 25.4;
 				break;
 
 			case 'feet':
 				base = height * 304.8;
 				break;
 
-			case 'inches':
-				base = height * 25.4;
+			case 'meters':
+				base = height * 1000;
 				break;
-
 		}
 
 		// convert from base unit to requested destination
 		let result;
 		switch(dest) {
-			case 'cm':
-				result = base / 10;
-				break;
-
 			case 'mm':
 				result = base;
 				break;
 
-			case 'feet':
-				result = base / 304.8;
+			case 'cm':
+				result = base / 10;
 				break;
 
 			case 'inches':
 				result = base / 25.4;
 				break;
 
+			case 'feet':
+				result = base / 304.8;
+				break;
+
 			case 'meters':
 				result = base / 1000;
 				break;
-
 		}
 
 		return result.toFixed(2);
