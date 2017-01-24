@@ -65,6 +65,10 @@ class Person {
 				result = base;
 				break;
 
+			case 'inches':
+				result = base / 25.4;
+				break;
+
 		}
 
 		return result.toFixed(2);

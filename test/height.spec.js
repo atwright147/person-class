@@ -23,5 +23,6 @@ describe('Height', function() {
 		expect(Person.height(6, 'cm', 'mm')).toEqual(60);
 		expect(Person.height(6, 'feet', 'cm')).toEqual(182.88);
 		expect(Person.height(6, 'mm', 'mm')).toEqual(6);
+		expect(Person.height(6, 'meters', 'inches')).toEqual(236.22);
 	});
 });
