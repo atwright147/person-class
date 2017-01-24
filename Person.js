@@ -52,6 +52,10 @@ class Person {
 				base = height * 304.8;
 				break;
 
+			case 'inches':
+				base = height * 25.4;
+				break;
+
 		}
 
 		// convert from base unit to requested destination
@@ -65,8 +69,16 @@ class Person {
 				result = base;
 				break;
 
+			case 'feet':
+				result = base / 304.8;
+				break;
+
 			case 'inches':
 				result = base / 25.4;
+				break;
+
+			case 'meters':
+				result = base / 1000;
 				break;
 
 		}
