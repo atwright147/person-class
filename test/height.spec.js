@@ -10,8 +10,13 @@ describe('Height', function() {
 		Person = new PersonClass();
 	});
 
-	it('should return height in "cm"', () => {
+	it('should return false when params are missing', () => {
+		expect(Person.height(6, null, null)).toBe(false);
+	});
+
+	it('should return correct height', () => {
 		expect(Person.height(6, 'meters', 'cm')).toEqual(600);
+		expect(Person.height(6, 'cm', 'mm')).toEqual(6);
 		expect(Person.height(6, 'feet', 'cm')).toEqual(182.88);
 	});
 });

@@ -16,7 +16,11 @@ class Person {
 		return diffObj.getUTCFullYear() - 1970;
 	}
 
-	height(height, source, dest) {
+	height(height = null, source = null, dest = null) {
+		if (height === null || source === null || dest === null) {
+			return false;
+		}
+
 		const measurements = [
 			'meters',
 			'cm',
@@ -32,6 +36,10 @@ class Person {
 				base = height * 1000;
 				break;
 
+			case 'cm':
+				base = height * 1000;
+				break;
+
 			case 'feet':
 				base = height * 304.8;
 				break;
@@ -44,6 +52,11 @@ class Person {
 			case 'cm':
 				result = base / 10;
 				break;
+
+			case 'mm':
+				result = base;
+				break;
+
 		}
 
 		return result.toFixed(2);
