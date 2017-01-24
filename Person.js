@@ -25,13 +25,20 @@ class Person {
 			'inches'
 		];
 
+		// convert to our chosen base unit (mm)
 		let base;
 		switch(source) {
+			case 'meters':
+				base = height * 1000;
+				break;
+
 			case 'feet':
 				base = height * 304.8;
 				break;
+
 		}
 
+		// convert from base unit to requested destination
 		let result;
 		switch(dest) {
 			case 'cm':
