@@ -20,7 +20,8 @@ describe('Height', function() {
 
 	it('should return correct height', () => {
 		expect(Person.height(6, 'meters', 'cm')).toEqual(600);
-		expect(Person.height(6, 'cm', 'mm')).toEqual(6);
+		expect(Person.height(6, 'cm', 'mm')).toEqual(60);
 		expect(Person.height(6, 'feet', 'cm')).toEqual(182.88);
+		expect(Person.height(6, 'mm', 'mm')).toEqual(6);
 	});
 });

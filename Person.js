@@ -41,7 +41,11 @@ class Person {
 				break;
 
 			case 'cm':
-				base = height * 1000;
+				base = height * 10;
+				break;
+
+			case 'mm':
+				base = height;
 				break;
 
 			case 'feet':
