@@ -17,7 +17,29 @@ class Person {
 	}
 
 	height(height, source, dest) {
-		return 100;
+		const measurements = [
+			'meters',
+			'cm',
+			'mm',
+			'feet',
+			'inches'
+		];
+
+		let base;
+		switch(source) {
+			case 'feet':
+				base = height * 304.8;
+				break;
+		}
+
+		let result;
+		switch(dest) {
+			case 'cm':
+				result = base / 10;
+				break;
+		}
+
+		return result.toFixed(2);
 	}
 }
 

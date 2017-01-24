@@ -10,7 +10,7 @@ describe('Height', function() {
 		Person = new PersonClass();
 	});
 
-	it('should return 100', () => {
-		expect(Person.height(1000, 'feet-inches', 'cm')).toEqual(100);
+	it('should return height in "cm"', () => {
+		expect(Person.height(6, 'feet', 'cm')).toEqual(182.88);
 	});
 });
