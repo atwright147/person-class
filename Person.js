@@ -1,13 +1,20 @@
-'use strict';
-
 class Person {
 
-	age(dob) {
-		if (typeof dob === 'string' && !dob.match(/(\d{1,2})(?:\/|\.|\-)(\d{1,2})(?:\/|\.|\-)(\d{4}|\d{2})/ig)) {
-			return false;
+	constructor(legs = 2, arms = 2, dob = null, gender = null, height = null, nationality = null) {
+		this._legs = legs;
+		this._arms = arms;
+		this._dob = dob;
+		this._gender = gender;
+		this._height = height;
+		this._nationality = nationality;
+	}
+
+	age() {
+		if (!this._dob || typeof this._dob === 'undefined' || !this._dob.match(/(\d{1,2})(?:\/|\.|\-)(\d{1,2})(?:\/|\.|\-)(\d{4}|\d{2})/ig)) {
+			return null;
 		}
 
-		const [dobDay, dobMonth, dobYear] = dob.split(/(?:\/|\.|\-)/ig);
+		const [dobDay, dobMonth, dobYear] = this._dob.split(/(?:\/|\.|\-)/ig);
 
 		const dobObj = new Date(dobYear, dobMonth, dobDay);
 		const dobDiff = Date.now() - dobObj.getTime();
@@ -16,13 +23,13 @@ class Person {
 		return diffObj.getUTCFullYear() - 1970;
 	}
 
-	height(height = null, source = null, dest = null) {
-		if (height === null || source === null || dest === null) {
+	height(source = null, dest = null) {
+		if (this._height === null || source === null || dest === null) {
 			return false;
 		}
 
 		if (source === dest) {
-			return height;
+			return this._height;
 		}
 
 		const measurements = [
@@ -37,23 +44,23 @@ class Person {
 		let base;
 		switch(source) {
 			case 'mm':
-				base = height;
+				base = this._height;
 				break;
 
 			case 'cm':
-				base = height * 10;
+				base = this._height * 10;
 				break;
 
 			case 'inches':
-				base = height * 25.4;
+				base = this._height * 25.4;
 				break;
 
 			case 'feet':
-				base = height * 304.8;
+				base = this._height * 304.8;
 				break;
 
 			case 'meters':
-				base = height * 1000;
+				base = this._height * 1000;
 				break;
 		}
 

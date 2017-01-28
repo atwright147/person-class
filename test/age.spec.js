@@ -8,7 +8,7 @@ describe('Age', function() {
 	let clock;
 
 	beforeEach(() => {
-		Person = new PersonClass();
+		Person = new PersonClass(2, 2, '22/09/1978', 'male', 6, 'British');
 
 		const mockDate = new Date(2015, 8, 28);
 		clock = sinon.useFakeTimers(mockDate.getTime());
@@ -19,16 +19,18 @@ describe('Age', function() {
 	});
 
 	it('should return false for malformed dates', () => {
-		expect(Person.age('aa/bb/cccc')).toBe(false);
+		Person = new PersonClass(2, 2, null, 'male', 6, 'British');
+
+		expect(Person.age()).toBe(null);
 	});
 
 	it('should return 36 for 22/09/1978', () => {
-		expect(Person.age('22/09/1978')).toEqual(36);
+		expect(Person.age()).toEqual(36);
 	});
 
 	it('should accept "/", "." and "-" as delimiters', () => {
-		expect(Person.age('22/09/1978')).toEqual(36);
-		expect(Person.age('22.09.1978')).toEqual(36);
-		expect(Person.age('22-09-1978')).toEqual(36);
+		expect(Person.age()).toEqual(36);
+		expect(Person.age()).toEqual(36);
+		expect(Person.age()).toEqual(36);
 	});
 });
