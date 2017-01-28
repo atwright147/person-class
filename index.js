@@ -1,7 +1,8 @@
-'use strict';
+import Person from './Person';
 
-import PersonClass from './Person';
+// legs, arms, dob, gender, height, nationality
+const p = new Person(2, 2, '22/09/1978', 'male', 175, 'british');
+console.log(p);
 
-const Person = new PersonClass();
-
-Person.age('22/09/1978');
+console.log(p.age());
+console.log(p.height('cm', 'feet'));
