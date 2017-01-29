@@ -11,6 +11,9 @@ describe('Height', function() {
 	});
 
 	it('should return false when params are missing', () => {
+		expect(Person.height()).toBe(false);
+		expect(Person.height({}, {})).toBe(false);
+		expect(Person.height([], [])).toBe(false);
 		expect(Person.height(null, null)).toBe(false);
 	});
 
