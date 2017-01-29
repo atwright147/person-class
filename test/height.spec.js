@@ -14,6 +14,10 @@ describe('Height', function() {
 		expect(Person.height(null, null)).toBe(false);
 	});
 
+	it('should return false when are not in the available list', () => {
+		expect(Person.height('cmx', 'meterx')).toBe(false);
+	});
+
 	it('should return same height as param if source and dest are the same', () => {
 		expect(Person.height('meters', 'meters')).toEqual(6);
 	});

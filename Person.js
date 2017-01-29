@@ -32,13 +32,17 @@ class Person {
 			return this._height;
 		}
 
-		const measurements = [
+		const unitsAvailable = [
 			'mm',
 			'cm',
 			'inches',
 			'feet',
 			'meters',
 		];
+
+		if (!unitsAvailable.includes(source) || !unitsAvailable.includes(dest)) {
+			return false;
+		}
 
 		// convert to our chosen base unit (mm)
 		let base;
